@@ -10,5 +10,6 @@ import java.util.Optional;
 interface InventoryRepository extends CrudRepository<Inventory, Long> {
 
     Optional<Inventory> getInventoryByName(String name);
+
     List<Inventory> getInventoriesByNameIn(List<String> names);
 }

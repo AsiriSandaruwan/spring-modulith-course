@@ -11,13 +11,13 @@ public class PaymentStatusConverter implements AttributeConverter<PaymentStatus,
 
     @Override
     public String convertToDatabaseColumn(PaymentStatus status) {
-        if(status == null) throw new IllegalArgumentException("Status can't be null");
+        if (status == null) throw new IllegalArgumentException("Status can't be null");
         return status.getCode();
     }
 
     @Override
     public PaymentStatus convertToEntityAttribute(String code) {
-        if(code == null) throw new IllegalArgumentException("Code can't be null");
+        if (code == null) throw new IllegalArgumentException("Code can't be null");
         return Arrays.stream(PaymentStatus.values())
                 .filter(s -> s.getCode().equalsIgnoreCase(code))
                 .findFirst().orElseThrow(IllegalArgumentException::new);
